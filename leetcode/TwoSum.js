@@ -9,6 +9,8 @@ var twoSum = function(nums, target) {
     }
 };
 
+//solution 2
+
 var twoSum = function(nums, target) {
 
     obj = {}
