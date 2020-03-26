@@ -1,8 +1,14 @@
 var minStickers = function(stickers, target) {
+    let tar = []
     let arr = []
+    
+    for (let k = 0; k < target.length; k++) {
+      tar.push(target[k])
+    }
   
     for (let i = 0; i < stickers.length; i++) {
       let hash = {}
+  
       for (let j = 0; j < stickers[i].length; j++) {
         if (hash[stickers[i][j]]) {
           hash[stickers[i][j]] += 1
@@ -10,10 +16,19 @@ var minStickers = function(stickers, target) {
           hash[stickers[i][j]] = 1
         }
       }
-      arr.push(hash)
-    }
   
-    return arr
+      arr.push(hash)
+  
+      for (let t = 0; t < tar.length; t++) {
+        if (hash.hasOwnProperty(tar[t]) && tar[t] > 0) {
+          hash[tar[t]] -= 1
+  
+          tar.shift()
+  
+        } 
+      }
+  
+    }
   };
   
   minStickers(["with", "example", "science"], "thehat")
