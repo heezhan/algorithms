@@ -13,6 +13,10 @@ const check = (food_times, i) => {
 function solution(food_times, k) {
     let count = 0
     let i = 0
+
+    if ( (food_times.reduce((a, b)=> a + b, 0)) <= k ) {
+        return -1
+    }
     
     while (count < k+1) {
         
